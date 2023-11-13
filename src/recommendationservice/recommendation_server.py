@@ -41,11 +41,11 @@ tracer_provider.add_span_processor(BatchSpanProcessor(OTLPSpanExporter()))
 
 class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
     def ListRecommendations(self, request, context):
-        latency = random.uniform(0, 2)
+        latency = random.uniform(0, 3)
         time.sleep(latency)
 
         # Simular un error aleatorio del 10% del tiempo
-        if random.random() < 0.1:
+        if random.random() < 0.3:
             context.abort(grpc.StatusCode.INTERNAL, "Error aleatorio ocurrió")
         max_responses = 5
         # fetch list of products from product catalog stub
