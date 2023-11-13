@@ -46,7 +46,7 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
 
         # Simular un error aleatorio del 10% del tiempo
         if random.random() < 0.3:
-            context.abort(grpc.StatusCode.INTERNAL, "Error aleatorio ocurrió")
+            context.abort(grpc.StatusCode.INTERNAL, "Error aleatorio generado !!!")
         max_responses = 5
         # fetch list of products from product catalog stub
         cat_response = product_catalog_stub.ListProducts(demo_pb2.Empty())
